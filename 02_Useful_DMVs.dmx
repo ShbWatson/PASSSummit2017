@@ -1,0 +1,34 @@
+/* Copyright (c) 2017 ABI Cube */
+/* Shabnam Watson */
+
+/*
+Provide information about local server operations and server health. 
+Syntax based on a SELECT SQL statement
+JOIN, GROUP BY, LIKE, CAST, and CONVERT are not supported
+system administrator permissions on the Analysis Services instance to .
+*/
+
+--https://docs.microsoft.com/en-us/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services#bkmk_ref
+
+
+
+
+Select * from $System.discover_sessions
+
+Select * from $System.discover_Traces
+
+Select * from $System.discover_object_memory_usage
+Order BY OBJECT_MEMORY_NONSHRINKABLE DESC
+
+
+
+
+/* Others:
+
+Select * from $System.discover_locks
+
+Select * from $System.DBSCHEMA_CATALOGS 
+
+Select * from $System.discover_object_activity
+*/
+
